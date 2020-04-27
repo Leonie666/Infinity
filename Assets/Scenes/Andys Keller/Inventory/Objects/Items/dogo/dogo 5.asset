@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc99340b213cad34883a786193393e19, type: 3}
+  m_Name: dogo 5
+  m_EditorClassIdentifier: 
+  itemName: dogo5
+  itemSprite: {fileID: -3541337794625498708, guid: 40895f331d0b0714f9b8dd00b9067ded,
+    type: 3}
+  prefabReference: {fileID: 0}

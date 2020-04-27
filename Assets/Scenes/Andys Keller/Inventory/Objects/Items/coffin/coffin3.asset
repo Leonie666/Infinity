@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc99340b213cad34883a786193393e19, type: 3}
+  m_Name: coffin3
+  m_EditorClassIdentifier: 
+  itemName: pic3
+  itemSprite: {fileID: -4928349905066675033, guid: 13601a3d2e91b314083e3a8394997eae,
+    type: 3}
+  prefabReference: {fileID: 0}

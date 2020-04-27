@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc1e8f05dc4375498dd149d0286602f, type: 3}
+  m_Name: P2 Inv
+  m_EditorClassIdentifier: 
+  inventorySize: 9
+  charName: P2 inv
+  itemList:
+  - {fileID: 11400000, guid: 71b6a53b3f31fc8498cfd180b38b77a6, type: 2}
+  - {fileID: 11400000, guid: 781750bf1187bfe488eb5b879916c1ad, type: 2}
+  - {fileID: 11400000, guid: 24a9511bb8295bf4ca9f84de70b2106c, type: 2}
+  - {fileID: 11400000, guid: 54e4fc2d7977dd94ca7b886375dcb35f, type: 2}
+  - {fileID: 11400000, guid: 1c779e6241b73084087fc81b17ce71b6, type: 2}
+  - {fileID: 11400000, guid: a552adf6c5f0f43458db5b00dc31f1d9, type: 2}
+  - {fileID: 11400000, guid: f3039fd89f855e44dabb93dd4a96612e, type: 2}
+  - {fileID: 11400000, guid: a1bbf0b677f0c9a408da610e7e57ccff, type: 2}
+  - {fileID: 11400000, guid: d0cdd807918eab347bb1583186b6d4c8, type: 2}
+  defaultSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
