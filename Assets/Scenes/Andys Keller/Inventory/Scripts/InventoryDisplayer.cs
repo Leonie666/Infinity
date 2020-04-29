@@ -7,7 +7,8 @@ using MoreMountains.Feedbacks;
 
 public class InventoryDisplayer : MonoBehaviour
 {
-    Transform selectedChar;
+    [HideInInspector]
+    public Transform selectedChar;
     public GameObject InventoryCanvas;
     public Image[] inventorySlots;
     public TMP_Text missionText;
@@ -15,14 +16,12 @@ public class InventoryDisplayer : MonoBehaviour
     public TMP_Text IdNr;
     public Image IdPicture;
     public TMP_Text IdDescription;
-    public MMFeedbacks feedback;
 
     // Update is called once per frame
 
     private void Start()
     {
         InventoryCanvas.gameObject.SetActive(false);
-        feedback.GetComponent<MMFeedback>();
     }
     void Update()
     {
@@ -46,7 +45,6 @@ public class InventoryDisplayer : MonoBehaviour
                 if (hit.collider.transform.tag.Equals("Character"))
                 {
                     selectedChar = hit.collider.transform;
-                    feedback
                     selectedChar.GetChild(0).gameObject.SetActive(true);
                     LoadCanvas();
                 }
@@ -90,10 +88,13 @@ public class InventoryDisplayer : MonoBehaviour
             if (inv.itemList[i] != null)
             {
                 inventorySlots[i].sprite = inv.itemList[i].itemSprite;
+                inventorySlots[i].gameObject.GetComponent<PanelInfo>().item = inv.itemList[i];
+                inventorySlots[i].gameObject.GetComponent<PanelInfo>().slotNumber = i;
             }
             else
             {
                 inventorySlots[i].sprite = inv.defaultSprite;
+                inventorySlots[i].gameObject.GetComponent<PanelInfo>().item = null;
             }
         }
 
