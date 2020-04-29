@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using MoreMountains.Feedbacks;
 
 public class InventoryDisplayer : MonoBehaviour
 {
@@ -14,12 +15,14 @@ public class InventoryDisplayer : MonoBehaviour
     public TMP_Text IdNr;
     public Image IdPicture;
     public TMP_Text IdDescription;
+    public MMFeedbacks feedback;
 
     // Update is called once per frame
 
     private void Start()
     {
         InventoryCanvas.gameObject.SetActive(false);
+        feedback.GetComponent<MMFeedback>();
     }
     void Update()
     {
@@ -43,6 +46,7 @@ public class InventoryDisplayer : MonoBehaviour
                 if (hit.collider.transform.tag.Equals("Character"))
                 {
                     selectedChar = hit.collider.transform;
+                    feedback
                     selectedChar.GetChild(0).gameObject.SetActive(true);
                     LoadCanvas();
                 }
