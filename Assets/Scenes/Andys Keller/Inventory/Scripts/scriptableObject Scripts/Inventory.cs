@@ -9,5 +9,4 @@ public class Inventory : ScriptableObject
     public string charName;
     public Item[] itemList = new Item[9];
     public Sprite defaultSprite;
-
 }
