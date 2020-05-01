@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,14 +8,14 @@ public class PlayerMovement : MonoBehaviour
 	public Rigidbody RB;
 	public bool IsActive = true;
 
+	public int health; // NEW
+
 	private bool cameraInPosition = false;
 	private GameObject CamHolder;
 	private bool isSneaky = false;
-	
 
 
-
-    void Start()
+	void Start()
     {
 		RB = GetComponent<Rigidbody>();
 		CamHolder = GameObject.Find("CamHolder");
@@ -64,4 +62,11 @@ public class PlayerMovement : MonoBehaviour
 		Camera.SetPosition();
 		cameraInPosition = true;
 	}
+
+	// NEW
+	public void TakeDamage(int damageTaken)
+	{
+		health -= damageTaken;
+	}
+
 }
