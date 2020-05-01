@@ -1,30 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
 
-    [SerializeField] private Object mainMenuObject;
+    /// <summary>
+    /// prefab of the pause menu
+    /// </summary>
+    [SerializeField] private GameObject pauseMenuObject;
 
-    [SerializeField] private Object pauseMenuObject;
+    /// <summary>
+    /// prefab of the volume settings menu
+    /// </summary>
+    [SerializeField] private GameObject volumeSettingsObject;
 
-    [SerializeField] private Object volumeSettingsObject;
-
+    /// <summary>
+    /// int to manage actions when escape key is pressed
+    /// </summary>
     private int menuState;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// sets menuState to 3 before the first frame update (because first scene loaded is main menu scene)
+    /// </summary>
     void Start()
     {
-        menuState = 3;
+        menuState = 0;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// inits CheckEscape() once per frame
+    /// </summary>
     void Update()
     {
         CheckEscape();
     }
 
+    /// <summary>
+    /// checks if escape key is pressed and opens or closes menu depending on menu state
+    /// </summary>
     private void CheckEscape()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -39,60 +54,82 @@ public class MenuManager : MonoBehaviour
                     break;
                 case 2:
                     CloseVolumeSettings();
-                    menuState = 1;
-                    break;
-                case 3:
                     break;
             }
         }
     }
 
+    /// <summary>
+    /// starts game by loading game scene
+    /// </summary>
     public void StartGame()
     {
-        Destroy(mainMenuObject);
-        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
         menuState = 0;
     }
 
+    /// <summary>
+    /// opens async scene pause menu
+    /// </summary>
     private void OpenPauseMenu()
     {
-        Instantiate(pauseMenuObject);
+        pauseMenuObject.SetActive(true);
         Time.timeScale = 0;
         menuState = 1;
     }
 
+    /// <summary>
+    /// resumes to the game by closing async scene pause menu
+    /// </summary>
     public void ResumeGame()
     {
-        Destroy(pauseMenuObject);
-        Time.timeScale = 1;
+        pauseMenuObject.SetActive(false);
+        Time.timeScale = 1f;
         menuState = 0;
     }
 
+    /// <summary>
+    /// restarts the game by loading main menu scene
+    /// </summary>
     public void RestartGame()
     {
-        Instantiate(mainMenuObject);
+        SceneManager.LoadScene(0);
         menuState = 3;
     }
 
+    /// <summary>
+    /// opens volume settings, closes pause menu
+    /// </summary>
     public void OpenVolumeSettings()
     {
-        Destroy(pauseMenuObject);
-        Instantiate(volumeSettingsObject);
+        pauseMenuObject.SetActive(false);
+        volumeSettingsObject.SetActive(true);
         menuState = 2;
     }
 
+    /// <summary>
+    /// handles volume settings
+    /// !!NEEDS TO BE COMPLETED!!
+    /// </summary>
     public void HandleVolumeSettings()
     {
 
     }
 
+    /// <summary>
+    /// closes volume settings and opens the pause menu
+    /// </summary>
     public void CloseVolumeSettings()
     {
-        Destroy(volumeSettingsObject);
-        Instantiate(pauseMenuObject);
+        volumeSettingsObject.SetActive(false);
+        pauseMenuObject.SetActive(true);
         menuState = 1;
     }
 
+    /// <summary>
+    /// stops playing mode if we are in the editor, stops the application if we are using a builded version
+    /// </summary>
     public void Quit()
     {
 #if UNITY_EDITOR
@@ -102,5 +139,4 @@ public class MenuManager : MonoBehaviour
 #endif
 
     }
-
 }
