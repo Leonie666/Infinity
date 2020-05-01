@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using MoreMountains.Feedbacks;
 
 public class InventoryDisplayer : MonoBehaviour
 {
-    Transform selectedChar;
+    [HideInInspector]
+    public Transform selectedChar;
     public GameObject InventoryCanvas;
     public Image[] inventorySlots;
     public TMP_Text missionText;
@@ -86,10 +88,13 @@ public class InventoryDisplayer : MonoBehaviour
             if (inv.itemList[i] != null)
             {
                 inventorySlots[i].sprite = inv.itemList[i].itemSprite;
+                inventorySlots[i].gameObject.GetComponent<PanelInfo>().item = inv.itemList[i];
+                inventorySlots[i].gameObject.GetComponent<PanelInfo>().slotNumber = i;
             }
             else
             {
                 inventorySlots[i].sprite = inv.defaultSprite;
+                inventorySlots[i].gameObject.GetComponent<PanelInfo>().item = null;
             }
         }
 
